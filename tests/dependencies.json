@@ -1,0 +1,13 @@
+{
+  "zookeeper": {
+    "cmd": ["dev-bin/zk-server", "tests/conf/zookeeper"],
+    "cwd": ["__dirname", ".."],
+    "log_file": "test-zookeeper.log",
+    "wait_for": "socket",
+    "wait_for_options": {
+      "host": "127.0.0.1",
+      "port": 22181
+    },
+    "timeout": 20000
+  }
+}
