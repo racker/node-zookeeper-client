@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+
+# args:
+# 1 (required) : config directory (may contain log4j and zoo.cfg).
+# 2 (required) : tmp dir for pid file, log, etc.
+
+ZOOCFGDIR=$1
+ZOOCFG="$ZOOCFGDIR/zoo.cfg"
+
+# TODO this is really ugly
+# seems, that log4j requires the log4j.properties file to be in the classpath
+CLASSPATH="$ZOOCFGDIR:/opt/zookeeper/build/classes:/opt/zookeeper/build/lib/slf4j-log4j12-1.6.1.jar:/opt/zookeeper/build/lib/slf4j-api-1.6.1.jar:/opt/zookeeper/bin/../build/lib/netty-3.2.2.Final.jar:/opt/zookeeper/bin/../build/lib/log4j-1.2.15.jar:/opt/zookeeper/build/lib/jline-0.9.94.jar:/opt/zookeeper/lib/*.jar:/opt/zookeeper/zookeeper-*.jar:/opt/zookeeper/src/java/lib/ivy-2.2.0.jar"
+
+JAVA=/usr/bin/java
+ZOOMAIN="org.apache.zookeeper.server.quorum.QuorumPeerMain"
+ZOO_LOG4J_PROP="DEBUG,CONSOLE"
+JMXLOCALONLY=false
+JAVA_OPTS=""
+
+# Only follow symlinks if readlink supports it
+if readlink -f "$0" > /dev/null 2>&1
+then
+  ZOOBIN=`readlink -f "$0"`
+else
+  ZOOBIN="$0"
+fi
+
+echo "Using config: $ZOOCFG"
+
+rm -rf /tmp/zk/data
+mkdir -p /tmp/zk/data
+
+
+echo  "Starting zookeeper ... "
+exec java  "-Dzookeeper.root.logger=${ZOO_LOG4J_PROP}" \
+    -cp "$CLASSPATH" $JVMFLAGS $ZOOMAIN "$ZOOCFG"
