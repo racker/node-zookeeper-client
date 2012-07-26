@@ -4,9 +4,9 @@ fi
 
 if [ $TRAVIS ]; then
   DEPENDENCIES_FILE="tests/dependencies-travis.json"
-  TIMEOUT=80000
+  TIMEOUT=85000
 else
-  TIMEOUT=50000
+  TIMEOUT=65000
   DEPENDENCIES_FILE="tests/dependencies.json"
 fi
 
