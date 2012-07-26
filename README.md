@@ -8,6 +8,10 @@ following features:
 * Locking
 * Master election
 
+## Build status
+
+[![Build Status](https://secure.travis-ci.org/racker/node-zookeeper-client.png)](http://travis-ci.org/racker/node-zookeeper-client)
+
 ## Development
 
 ### Running tests
