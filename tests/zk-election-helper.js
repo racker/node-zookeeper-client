@@ -22,7 +22,7 @@ var DEFAULT_HOST = 'localhost';
 var DEFAULT_PORT = '8080';
 
 function main() {
-  var argv, state, zk;
+  var argv, state = {'master': false}, zk;
 
   optimist = optimist.usage('Usage: $0 -p [port] -h [hostname] --help');
   optimist = optimist['default']('p', DEFAULT_PORT);
