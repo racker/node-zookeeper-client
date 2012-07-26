@@ -8,6 +8,16 @@ following features:
 * Locking
 * Master election
 
+## Development
+
+### Running tests
+
+`npm run-script test`
+
+### Running lint
+
+`npm run-script lint`
+
 # License
 
 Library is distributed under the [Apache license](http://www.apache.org/licenses/LICENSE-2.0.html).
