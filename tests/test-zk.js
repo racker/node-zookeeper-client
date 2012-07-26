@@ -419,6 +419,7 @@ exports['test_election'] = function(test, assert) {
         data += d;
       });
       res.on('end', function() {
+        console.log('Got data: ' + data);
         callback(null, JSON.parse(data));
       });
     });
