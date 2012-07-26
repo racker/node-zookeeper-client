@@ -8,9 +8,16 @@
 ZOOCFGDIR=$1
 ZOOCFG="$ZOOCFGDIR/zoo.cfg"
 
-# TODO this is really ugly
-# seems, that log4j requires the log4j.properties file to be in the classpath
-CLASSPATH="$ZOOCFGDIR:/opt/zookeeper/build/classes:/opt/zookeeper/build/lib/slf4j-log4j12-1.6.1.jar:/opt/zookeeper/build/lib/slf4j-api-1.6.1.jar:/opt/zookeeper/bin/../build/lib/netty-3.2.2.Final.jar:/opt/zookeeper/bin/../build/lib/log4j-1.2.15.jar:/opt/zookeeper/build/lib/jline-0.9.94.jar:/opt/zookeeper/lib/*.jar:/opt/zookeeper/zookeeper-*.jar:/opt/zookeeper/src/java/lib/ivy-2.2.0.jar"
+if [ $TRAVIS ]; then
+  ZOODIR="tests/zookeeper-20120116174103"
+
+  rm -rf $ZOODIR
+  tar -xzvf tests/zookeeper-20120116174103.tar.gz -C tests/
+else
+  ZOODIR="/opt/zookeeper"
+fi
+
+CLASSPATH="$ZOOCFGDIR:$ZOODIR/build/classes:$ZOODIR/build/lib/slf4j-log4j12-1.6.1.jar:$ZOODIR/build/lib/slf4j-api-1.6.1.jar:$ZOODIR/bin/../build/lib/netty-3.2.2.Final.jar:$ZOODIR/bin/../build/lib/log4j-1.2.15.jar:$ZOODIR/build/lib/jline-0.9.94.jar:$ZOODIR/lib/*.jar:$ZOODIR/zookeeper-*.jar:$ZOODIR/src/java/lib/ivy-2.2.0.jar"
 
 JAVA=/usr/bin/java
 ZOOMAIN="org.apache.zookeeper.server.quorum.QuorumPeerMain"
