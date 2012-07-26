@@ -1,4 +1,4 @@
-# Node.js Farscape API client
+# Node.js higher-level ZooKeeper client.
 
 Higher level Node.js ZooKeeper client based on
 [node-zookeeper](https://github.com/yfinkelstein/node-zookeeper) with the
