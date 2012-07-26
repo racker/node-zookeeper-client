@@ -33,15 +33,19 @@ function main() {
   zk.connect(function(err, session) {
     zk.volunteer('test', function(err, stats) {
       util.puts('err: ' + err);
-      util.puts('stats: ' + stats);
+      util.puts('stats: ' + JSON.stringify(stats));
       util.puts(':start:');
       state = stats;
     });
   });
 
   http.createServer(function(request, response) {
+    var data = JSON.stringify(state);
+
+    util.puts('Returning response: ' + data);
+
     response.writeHead(200, {'Content-Type': 'application/json'});
-    response.end(JSON.stringify(state));
+    response.end(data);
   }).listen(argv.p, function() {
     console.log('Listening on ' + argv.h + ':' + argv.p);
   });
