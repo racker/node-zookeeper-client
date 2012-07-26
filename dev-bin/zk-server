@@ -10,7 +10,7 @@ ZOOCFG="$ZOOCFGDIR/zoo.cfg"
 
 if [ $TRAVIS ]; then
   ZOODIR="tests/zookeeper-20120116174103"
-  JVMFLAGS="-XX:MaxPermSize=512M -Xms225M -Xmx512M"
+  JVMFLAGS="-XX:MaxPermSize=256M -Xms128M -Xmx256M"
 
   rm -rf $ZOODIR
   tar -xzvf tests/zookeeper-20120116174103.tar.gz -C tests/
