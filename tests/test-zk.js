@@ -496,7 +496,7 @@ exports['test_election'] = function(test, assert) {
           killAllNodes(nodes);
           callback();
         });
-      }, 20000);
+      }, 12000);
     }
 
   ], function(err) {
