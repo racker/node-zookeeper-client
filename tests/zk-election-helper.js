@@ -32,6 +32,8 @@ function main() {
   zk = zkUtil.getClient([ZK_URL]);
   zk.connect(function(err, session) {
     zk.volunteer('test', function(err, stats) {
+      util.puts('err: ' + err);
+      util.puts('stats: ' + stats);
       util.puts(':start:');
       state = stats;
     });
