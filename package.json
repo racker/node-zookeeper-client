@@ -8,7 +8,7 @@
     "Russell Haering <russell.haering@rackspace.com>",
     "Tomaz Muraus <tomaz.muraus@rackspace.com>"
   ],
-  "keywords": [ "locking", "master election", "zookeeper"],
+  "keywords": [ "locking", "master election", "zookeeper", "distributed locking" ],
   "homepage": "https://github.com/racker/node-zookeeper-client",
   "repository": {
     "type": "git",
