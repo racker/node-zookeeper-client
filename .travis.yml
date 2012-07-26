@@ -6,6 +6,7 @@ node_js:
 jdk:
   - openjdk7
 
+before_script: npm run-script lint
 script: npm run-script test
 
 notifications:
