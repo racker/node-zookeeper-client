@@ -1,7 +1,7 @@
 {
   "name": "zookeeper-client",
   "description": "A higher-level ZooKeeper client based on node-zookeeper with support for locking and master election.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "Rackspace US, Inc.",
   "contributors": [
     "Ryan Phillips <ryan.phillips@rackspace.com>",
@@ -22,7 +22,7 @@
     "test": "./scripts/tests.sh"
   },
   "dependencies": {
-    "zookeeper": "3.4.6",
+    "zookeeper": "git://github.com/yunong/node-zookeeper.git",
     "async": "= 0.1.18",
     "sprintf": "= 0.1.1",
     "rackspace-shared-utils": ">= 0.1.4",
@@ -34,7 +34,7 @@
      "jshint": "0.5.9"
   },
   "engines": {
-    "node": ">= 0.6.0 && < 0.9.0"
+    "node": ">= 0.8.0 && < 0.11.0"
   },
   "main": "./lib/client",
   "licenses" : [
