@@ -22,7 +22,7 @@
     "test": "./scripts/tests.sh"
   },
   "dependencies": {
-    "zookeeper": "3.4.6",
+    "zookeeper": "git://github.com/yunong/node-zookeeper.git",
     "async": "= 0.1.18",
     "sprintf": "= 0.1.1",
     "rackspace-shared-utils": ">= 0.1.4",
